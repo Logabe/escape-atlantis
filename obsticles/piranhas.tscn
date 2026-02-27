@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b3iontganelin"]
+
+[ext_resource type="Texture2D" uid="uid://dn2mofd6ujq3b" path="res://obsticles/piranha.png" id="1_7hi41"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hte2o"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(-3.2, -4, 0)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 128, 0)
+
+[node name="Piranhas" type="Area2D" unique_id=1059718744]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1787721248]
+amount = 4
+texture = ExtResource("1_7hi41")
+lifetime = 1.2
+process_material = SubResource("ParticleProcessMaterial_hte2o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=29420935]
+polygon = PackedVector2Array(-8, -1, -20, -10, -37, -17, -58, -12, -71, -1, -78, -7, -64, -20, -49, -26, -37, -28, -26, -25, -4, -13, 2, -1)
