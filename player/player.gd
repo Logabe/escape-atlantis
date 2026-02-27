@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 50
-
+const SPEED = 80
+@export var spawn_point := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -16,4 +16,5 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func 
+func die():
+	position = spawn_point
