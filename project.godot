@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="escape-atlantis"
+run/main_scene="uid://dddniim40g05v"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/stretch/mode="canvas_items"
 
 [editor]
 
