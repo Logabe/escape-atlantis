@@ -4,6 +4,7 @@ const SPEED = 100
 const ACCELERATION = 800
 const FRICTION = 800
 
+@export var spawn_point := Vector2.ZERO
 var current_dir = "down"
 
 func _physics_process(delta: float) -> void:
@@ -58,3 +59,6 @@ func play_anim(is_moving: bool):
 	
 	
 	
+
+func die():
+	position = spawn_point

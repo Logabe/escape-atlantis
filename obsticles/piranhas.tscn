@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3iontganelin"]
 
 [ext_resource type="Texture2D" uid="uid://dn2mofd6ujq3b" path="res://obsticles/piranha.png" id="1_7hi41"]
+[ext_resource type="Script" uid="uid://cry8erh8maqyt" path="res://obsticles/piranhas.gd" id="1_hte2o"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hte2o"]
 particle_flag_align_y = true
@@ -15,6 +16,7 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 128, 0)
 
 [node name="Piranhas" type="Area2D" unique_id=1059718744]
+script = ExtResource("1_hte2o")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1787721248]
 amount = 4

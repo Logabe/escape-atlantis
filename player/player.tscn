@@ -267,4 +267,4 @@ drag_vertical_enabled = true
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_jd2rm")
 animation = &"down idle"
-frame_progress = 0.9578462
+frame_progress = 0.00047846016
