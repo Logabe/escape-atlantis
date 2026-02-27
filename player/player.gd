@@ -115,7 +115,6 @@ func play_anim(is_moving: bool):
 	else:
 		animation.play("idle")
 
-
 # ========================
 # Respawn
 # ========================

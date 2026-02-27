@@ -8,6 +8,7 @@ var active := false:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("aaa")
 	body_entered.connect(kill_player)
 	var tween = create_tween().set_loops().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(self, "active", true, loop_speed / 2)
