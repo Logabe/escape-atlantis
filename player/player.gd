@@ -113,4 +113,4 @@ func die():
 	hearts.remove_child(hearts.get_child(0))
 
 	if hearts.get_child_count() == 0:
-		print("Game over!")
+		get_tree().reload_current_scene()
