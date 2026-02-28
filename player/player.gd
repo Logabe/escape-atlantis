@@ -114,7 +114,7 @@ func die():
 	$AnimationPlayer.play("eagle")
 
 	if hearts.get_child_count() == 0:
-		print("game over")
+		get_tree().change_scene_to_file("res://deathScreen.tscn")
 
 
 func move_to_spawn():

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3iontganelin" path="res://obsticles/piranhas.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cma4dlqdh8nay" path="res://atlas_floor-16x16.png" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ceu6tp1s7ftb1" path="res://New Piskel (1).png" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://c3apbg0tfrid0" path="res://submarine.gd" id="5_272bh"]
 [ext_resource type="Texture2D" uid="uid://cv7mrnsowrurf" path="res://Water+.png" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
@@ -397,6 +398,9 @@ texture = ExtResource("5_lquwl")
 [sub_resource type="TileSet" id="TileSet_kek77"]
 sources/0 = SubResource("TileSetAtlasSource_5vw27")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(15.898102, 10.20858)
+
 [node name="Main" type="Node2D" unique_id=678598758]
 
 [node name="Player" parent="." unique_id=1009468132 instance=ExtResource("1_ig7tw")]
@@ -421,7 +425,18 @@ z_as_relative = false
 tile_map_data = PackedByteArray("AAAAAAkAAAABAAoAAAACAAkAAAABAAoAAAADAAkAAAABAAoAAAAHAAkAAAABAAoAAAAEAAoAAAACAAwAAAAFAAoAAAABAAoAAAAJAAQAAAAEAAsAAAAOAAQAAAABAAoAAAARAAQAAAABAAoAAAATAAQAAAABAAoAAAAYAAQAAAADAAoAAAAYAAUAAAAEAAwAAAAJAAUAAAAEAAwAAAA=")
 tile_set = SubResource("TileSet_kek77")
 
-[node name="NewPiskel(1)" type="Sprite2D" parent="." unique_id=1866836916]
+[node name="Submarine" type="Area2D" parent="." unique_id=1984942091]
 position = Vector2(458.99997, 101.00001)
 scale = Vector2(2.453124, 2.546875)
+script = ExtResource("5_272bh")
+
+[node name="NewPiskel(1)" type="Sprite2D" parent="Submarine" unique_id=1866836916]
+scale = Vector2(1.0000001, 1)
 texture = ExtResource("5_7mycd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Submarine" unique_id=695135440]
+position = Vector2(1.019104, -1.1779175)
+scale = Vector2(1.0000001, 1)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[connection signal="body_entered" from="Submarine" to="Submarine" method="_on_body_entered"]
