@@ -113,8 +113,5 @@ func die():
 	hearts.remove_child(hearts.get_child(0))
 
 	if hearts.get_child_count() == 0:
-<<<<<<< Updated upstream
 		get_tree().reload_current_scene()
-=======
 		print("Game over!")
->>>>>>> Stashed changes
