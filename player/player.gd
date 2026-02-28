@@ -5,29 +5,21 @@ const ACCELERATION = 800
 const FRICTION = 800
 
 @export var spawn_point := Vector2.ZERO
-var current_dir = "down"
+var facing_right = true   # true = right, false = left
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 
 func player_movement(delta):
-	var input_dir = Vector2.ZERO
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
-	# Only ONE direction allowed (priority order)
-	if Input.is_action_pressed("ui_right"):
-		input_dir = Vector2.RIGHT
-		current_dir = "right"
-	elif Input.is_action_pressed("ui_left"):
-		input_dir = Vector2.LEFT
-		current_dir = "left"
-	elif Input.is_action_pressed("ui_down"):
-		input_dir = Vector2.DOWN
-		current_dir = "down"
-	elif Input.is_action_pressed("ui_up"):
-		input_dir = Vector2.UP
-		current_dir = "up"
+	# Update facing direction ONLY from horizontal input
+	if input_dir.x > 0:
+		facing_right = true
+	elif input_dir.x < 0:
+		facing_right = false
 
-	# Smooth acceleration / stopping
+	# Smooth movement
 	if input_dir != Vector2.ZERO:
 		velocity = velocity.move_toward(input_dir * SPEED, ACCELERATION * delta)
 		play_anim(true)
@@ -37,28 +29,14 @@ func player_movement(delta):
 
 	move_and_slide()
 	
+	
 func play_anim(is_moving: bool):
 	var animation = $AnimatedSprite2D
 	
-	match current_dir:
-		"right":
-			animation.flip_h = false
-			animation.play("side walk" if is_moving else "side idle")
-		
-		"left":
-			animation.flip_h = true
-			animation.play("side walk" if is_moving else "side idle")
-		
-		"down":
-			animation.flip_h = false
-			animation.play("down walk" if is_moving else "down idle")
-		
-		"up":
-			animation.flip_h = false
-			animation.play("up walk" if is_moving else "up idle")
+	# Flip based on last horizontal direction
+	animation.flip_h = not facing_right
 	
-	
-	
-
-func die():
-	position = spawn_point
+	if is_moving:
+		animation.play("walk")
+	else:
+		animation.play("idle")
