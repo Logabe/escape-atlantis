@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dqmifhqcekpet"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eooto"]
+font_size = 65
+font_color = Color(0.6211384, 0, 0.04898741, 1)
+
+[node name="Control" type="Control" unique_id=526720003]
+layout_mode = 3
+anchor_right = 5.4
+anchor_bottom = 6.3560004
+offset_right = -12.0
+offset_bottom = -22.080078
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1593285103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.098098494, 0.098098524, 0.09809851, 1)
+
+[node name="Label" type="Label" parent="." unique_id=38561631]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 44.0
+offset_right = 480.0
+offset_bottom = 181.0
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_eooto")
