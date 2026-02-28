@@ -3,6 +3,50 @@
 [ext_resource type="PackedScene" uid="uid://co5g3neamlh4n" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="TileSet" uid="uid://cxan30ydojfyn" path="res://tileset.tres" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b3iontganelin" path="res://obsticles/piranhas.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://biyw436u0rwp7" path="res://New Piskel.png" id="4_lquwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("4_lquwl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("4_lquwl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("4_lquwl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = ExtResource("4_lquwl")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("4_lquwl")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efxa6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c57u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D" unique_id=678598758]
 
@@ -15,3 +59,7 @@ tile_set = ExtResource("3_h2yge")
 
 [node name="Piranhas" parent="." unique_id=968523755 instance=ExtResource("4_1bvp3")]
 position = Vector2(133, 146)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1137061158]
+sprite_frames = SubResource("SpriteFrames_efxa6")
+frame_progress = 0.2718868
