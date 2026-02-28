@@ -15,6 +15,7 @@ const ROLL_DURATION = 0.25
 const ROLL_COOLDOWN = 1.0
 
 @export var spawn_point := Vector2.ZERO
+@export var hearts: Node
 
 # ========================
 # State Variables
@@ -109,3 +110,7 @@ func play_anim(is_moving: bool):
 # ========================
 func die():
 	position = spawn_point
+	hearts.remove_child(hearts.get_child(0))
+
+	if hearts.get_child_count() == 0:
+		print("Game over!")

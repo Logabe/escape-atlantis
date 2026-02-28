@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjvmp0oa61vqa" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://drcuisoglge87" path="res://player/knight.png" id="2_rkbax"]
+[ext_resource type="Texture2D" uid="uid://cpwjt6p4vctwv" path="res://heart.png" id="3_g1dw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(13.999999, 20)
@@ -286,9 +287,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1009468132 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1009468132 node_paths=PackedStringArray("hearts") groups=["player"]]
 z_index = 1
 script = ExtResource("1_rkbax")
+hearts = NodePath("CanvasLayer/HBoxContainer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1067818152]
 position = Vector2(0, 4.7683716e-07)
@@ -303,3 +305,23 @@ drag_vertical_enabled = true
 sprite_frames = SubResource("SpriteFrames_jd2rm")
 animation = &"roll"
 frame_progress = 0.12778862
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1663084245]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1764956374]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 11.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1284719502]
+layout_mode = 2
+texture = ExtResource("3_g1dw6")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1131745575]
+layout_mode = 2
+texture = ExtResource("3_g1dw6")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1959807407]
+layout_mode = 2
+texture = ExtResource("3_g1dw6")
