@@ -204,7 +204,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_kb6p2")
 }, {
 "duration": 1.0,
@@ -302,4 +302,5 @@ drag_vertical_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1948753272]
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_jd2rm")
-animation = &"death"
+animation = &"roll"
+frame_progress = 0.12778862
