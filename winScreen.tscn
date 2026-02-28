@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cishu6kvtsrff"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ir8y4"]
+font_size = 22
+font_color = Color(0.77059215, 0.7698822, 1.1551381e-06, 1)
+
+[node name="Control" type="Control" unique_id=451594610]
+layout_mode = 3
+anchor_right = 1.1060001
+anchor_bottom = 1.2
+offset_right = -25.920013
+offset_bottom = -30.000015
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1342271388]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.1220001
+anchor_bottom = 1.215
+offset_top = -19.0
+offset_right = -0.016021729
+offset_bottom = 0.009994507
+color = Color(0.14225578, 0.14225581, 0.14225578, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1938796409]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 81.0
+offset_right = 403.0
+offset_bottom = 120.0
+text = "You completed the objective!"
+label_settings = SubResource("LabelSettings_ir8y4")
