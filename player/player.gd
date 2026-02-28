@@ -10,8 +10,8 @@ const FRICTION = 800
 # ========================
 # Roll Settings
 # ========================
-const ROLL_SPEED = 200
-const ROLL_DURATION = 0.1
+const ROLL_SPEED = 250
+const ROLL_DURATION = 0.25
 const ROLL_COOLDOWN = 1.0
 
 @export var spawn_point := Vector2.ZERO
