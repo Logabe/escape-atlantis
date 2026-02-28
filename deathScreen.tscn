@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dqmifhqcekpet"]
+[gd_scene format=3 uid="uid://blam4wbkd28c2"]
+
+[ext_resource type="Script" uid="uid://ebw0q2etm1ls" path="res://end_screen.gd" id="1_ej8j8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eooto"]
 font_size = 65
@@ -6,14 +8,15 @@ font_color = Color(0.6211384, 0, 0.04898741, 1)
 
 [node name="Control" type="Control" unique_id=526720003]
 layout_mode = 3
-anchor_right = 5.4
-anchor_bottom = 6.3560004
-offset_right = -12.0
-offset_bottom = -22.080078
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ej8j8")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1593285103]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +29,17 @@ color = Color(0.098098494, 0.098098524, 0.09809851, 1)
 layout_mode = 0
 offset_left = 9.0
 offset_top = 44.0
-offset_right = 480.0
-offset_bottom = 181.0
+offset_right = 315.0
+offset_bottom = 134.0
 text = "YOU DIED"
 label_settings = SubResource("LabelSettings_eooto")
+
+[node name="Button" type="Button" parent="." unique_id=1521390252]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 130.0
+offset_right = 178.0
+offset_bottom = 161.0
+text = "Retry"
+
+[connection signal="pressed" from="Button" to="." method="back"]
