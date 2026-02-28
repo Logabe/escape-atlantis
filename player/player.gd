@@ -19,7 +19,7 @@ const ROLL_COOLDOWN = 1.0
 # ========================
 # State Variables
 # ========================
-var facing_right = true
+var direction = Vector2.RIGHT
 var is_rolling = false
 var roll_timer = 0.0
 var cooldown_timer = 0.0
@@ -39,16 +39,11 @@ func _physics_process(delta: float) -> void:
 # Movement
 # ========================
 func player_movement(delta):
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-
-	# Update facing direction from horizontal input
-	if input_dir.x > 0:
-		facing_right = true
-	elif input_dir.x < 0:
-		facing_right = false
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	# Smooth acceleration / stopping
 	if input_dir != Vector2.ZERO:
+		direction = input_dir
 		velocity = velocity.move_toward(input_dir * SPEED, ACCELERATION * delta)
 		play_anim(true)
 	else:
@@ -65,7 +60,7 @@ func handle_roll(delta):
 	if cooldown_timer > 0.0:
 		cooldown_timer -= delta
 
-	# Start roll (Space key = ui_accept by default)
+	# Start roll
 	if Input.is_action_just_pressed("ui_accept") and cooldown_timer <= 0 and not is_rolling:
 		start_roll()
 
@@ -85,12 +80,7 @@ func start_roll():
 	print("Roll count:", roll_count)
 	$AnimatedSprite2D.play("roll")
 	# Roll forward based on facing direction
-	if facing_right:
-		velocity = Vector2.RIGHT * ROLL_SPEED
-	else:
-		velocity = Vector2.LEFT * ROLL_SPEED
-
-	
+	velocity = direction * ROLL_SPEED
 
 
 func end_roll():
@@ -104,8 +94,7 @@ func play_anim(is_moving: bool):
 	var animation = $AnimatedSprite2D
 
 	# Flip sprite based on facing
-	animation.flip_h = not facing_right
-
+	animation.flip_h = direction.x < 0
 	# Don't override roll animation
 	if is_rolling:
 		animation.play("roll")
