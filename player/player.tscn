@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cjvmp0oa61vqa" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://drcuisoglge87" path="res://player/knight.png" id="2_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cpwjt6p4vctwv" path="res://heart.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://dv4vrmamw1m2w" path="res://tilingvoronoi.png" id="4_g6k8r"]
+[ext_resource type="Shader" uid="uid://dyhyk88mg0qhl" path="res://player/water.gdshader" id="4_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://biyw436u0rwp7" path="res://New Piskel.png" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
@@ -288,6 +290,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_g6k8r"]
+colors = PackedColorArray(0.16924527, 0.1692453, 0.16924527, 1, 0.5370113, 0.5370113, 0.5370113, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qjkh3"]
+frequency = 0.0045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g6k8r"]
+noise = SubResource("FastNoiseLite_qjkh3")
+color_ramp = SubResource("Gradient_g6k8r")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6k8r"]
+shader = ExtResource("4_qjkh3")
+shader_parameter/waterNoise = ExtResource("4_g6k8r")
+shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_g6k8r")
+shader_parameter/waterColor = Color(0.117, 0.27, 0.58, 1)
+shader_parameter/colorCorection = 0.249999994412
+shader_parameter/distortionForce = 0.01
+shader_parameter/WDBrightness = 1.5
+shader_parameter/WDFreq = 0.6
+shader_parameter/WDSize = 0.9
+shader_parameter/WDSpeed = 4.0
+shader_parameter/tiling = Vector2(1, 1)
+shader_parameter/offSetSpeed = Vector2(0.1, 0.1)
+shader_parameter/backGroundDirX = 0.01
+shader_parameter/backGroundDirY = 0.01
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
 atlas = ExtResource("4_yw30f")
 region = Rect2(0, 0, 32, 32)
@@ -432,6 +461,14 @@ animation = &"roll"
 frame_progress = 0.12778862
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1663084245]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1169676403]
+material = SubResource("ShaderMaterial_g6k8r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1764956374]
 offset_left = 2.0
