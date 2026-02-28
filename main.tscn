@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://co5g3neamlh4n" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b3iontganelin" path="res://obsticles/piranhas.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cma4dlqdh8nay" path="res://atlas_floor-16x16.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://ceu6tp1s7ftb1" path="res://New Piskel (1).png" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cv7mrnsowrurf" path="res://Water+.png" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
@@ -408,3 +409,8 @@ z_index = -1
 z_as_relative = false
 tile_map_data = PackedByteArray("AAAAAAkAAAABAAoAAAACAAkAAAABAAoAAAADAAkAAAABAAoAAAAHAAkAAAABAAoAAAAEAAoAAAACAAwAAAAFAAoAAAABAAoAAAAJAAQAAAAEAAsAAAAOAAQAAAABAAoAAAARAAQAAAABAAoAAAATAAQAAAABAAoAAAAYAAQAAAADAAoAAAAYAAUAAAAEAAwAAAAJAAUAAAAEAAwAAAA=")
 tile_set = SubResource("TileSet_kek77")
+
+[node name="NewPiskel(1)" type="Sprite2D" parent="." unique_id=1866836916]
+position = Vector2(458.99997, 101.00001)
+scale = Vector2(2.453124, 2.546875)
+texture = ExtResource("5_7mycd")
