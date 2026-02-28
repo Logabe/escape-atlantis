@@ -16,6 +16,7 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 128, 0)
 
 [node name="Piranhas" type="Area2D" unique_id=1059718744]
+z_index = 2
 script = ExtResource("1_hte2o")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1787721248]
