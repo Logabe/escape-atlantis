@@ -109,9 +109,18 @@ func play_anim(is_moving: bool):
 # Respawn
 # ========================
 func die():
-	position = spawn_point
 	hearts.remove_child(hearts.get_child(0))
+	get_tree().paused = true
+	$AnimationPlayer.play("eagle")
 
 	if hearts.get_child_count() == 0:
-		get_tree().reload_current_scene()
-		print("Game over!")
+		print("game over")
+
+
+func move_to_spawn():
+	print("move_to_spawn")
+	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(self, "position", spawn_point, 1.)
+
+func end_death():
+	get_tree().paused = false
