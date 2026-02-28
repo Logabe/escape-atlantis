@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://map"]
+
+[ext_resource type="PackedScene" path="res://level/walls_0.tscn" id="0_id"]
+[ext_resource type="PackedScene" path="res://level/floor_1.tscn" id="1_id"]
+[ext_resource type="PackedScene" path="res://level/water_2.tscn" id="2_id"]
+
+[node name="map" type="Node2D" unique_id=2083074827]
+
+[node name="water_2" parent="." unique_id=1012903903 instance=ExtResource("2_id")]
+
+[node name="floor_1" parent="." unique_id=1783886368 instance=ExtResource("1_id")]
+collision_enabled = true
+
+[node name="walls_0" parent="." unique_id=715226459 instance=ExtResource("0_id")]
